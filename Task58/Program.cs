@@ -2,8 +2,6 @@
  которая будет находить произведение двух матриц.*/
 using System;
 using static System.Console;
-using System;
-using static System.Console;
 void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
