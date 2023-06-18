@@ -21,23 +21,18 @@ int[,,] GetArrayRandomOnce(int index1, int index2, int index3) // создает
 {
     int[] onceCheck = new int[index1 * index2 * index3];
     int[,,] result = new int[index1, index2, index3];
-    int m=0, count = 0;
+    int m = 0, count = 0;
     for (int i = 0; i < index1; i++)
         for (int j = 0; j < index2; j++)
             for (int k = 0; k < index3; k++)
             {
-                result[i, j, k] = new Random().Next(8);
+                result[i, j, k] = new Random().Next(10,100);
                 onceCheck[m] = result[i, j, k];
-                Write($" m = {m} -result[{i},{j},{k}] - {result[i, j, k]} ");
-                if (m == 0) WriteLine($" onceCheck[{m}]-{onceCheck[m]} result[{i}, {j}, {k}] - {result[i, j, k]} ");
                 for (int l = 0; l < m; l++)
                 {
-                    WriteLine($"Цикл l = {l} onceCheck[{l}]-{onceCheck[l]} <=> result[{i}, {j}, {k}] - {result[i, j, k]} ");
                     if (result[i, j, k] == onceCheck[l])
                     {
-                        Write($"Заменяем result[{i}, {j}, {k}] = на {result[i, j, k]}");
-                        result[i, j, k] = new Random().Next(8);
-                        WriteLine(result[i, j, k]);
+                        result[i, j, k] = new Random().Next(10,100);
                         onceCheck[m] = result[i, j, k];
                         l = -1;
                     }
@@ -47,5 +42,5 @@ int[,,] GetArrayRandomOnce(int index1, int index2, int index3) // создает
     return result;
 }
 Clear();
-int[,,] array = GetArrayRandomOnce(2, 2, 2);
+int[,,] array = GetArrayRandomOnce(3, 3, 3);
 PrintArrayWhithIndex(array);
